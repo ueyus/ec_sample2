@@ -5,6 +5,14 @@ class Item(models.model):
 	description = models.TextField("説明", max_length=200)
 	price = models.PositiveIntegerField("価格")
 
+	def to_dict(self):
+		return {
+			"id": self.id,
+			"name": self.name,
+			"price": self.price,
+			"description": self.description,
+		}
+
 	class Meta:
     db_table = "item"
 
